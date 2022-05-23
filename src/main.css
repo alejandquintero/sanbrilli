@@ -1,0 +1,28 @@
+@font-face{
+    font-family: 'BellaBoo';
+    src: url('./assets/fonts/bellaboo-1.ttf');
+}
+
+@font-face {
+  font-family: 'AnonymousPro';
+  src: url('./assets/fonts/AnonymousPro-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'AnonymousProBold';
+  src: url('./assets/fonts/AnonymousPro-Bold.ttf');
+}
+
+:root{
+  --bg-primary-color: #f8f8f8;
+  --bg-secondary-color: #111;
+  --text-primary-color: #111;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}

@@ -1,14 +1,6 @@
 <template>
   <header class="header">
-    <div class="logo-title">
-      <h1 class="logo-title__title">San Brilli</h1>
-      <h6 class="logo-title__subtitle">ACCESORIOS</h6>
-      <div class="stars">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-      </div>
-    </div>
+    <LogoSanBrilli></LogoSanBrilli>
     <aside class="aside">
       <div @click="menuActive" class="container-icon-menu ">
         <i class="icon-menu" :class="iconStyle"></i>
@@ -29,8 +21,13 @@
 </template>
 
 <script>
+  import LogoSanBrilli from './components/LogoSanBrilli.vue';
+
   export default {
     name: "App",
+    components: {
+      LogoSanBrilli
+    },
     data(){
       return{
         menu : false
@@ -57,112 +54,27 @@
 
 <style>
 
-@font-face{
-    font-family: 'BellaBoo';
-    src: url('./assets/fonts/bellaboo-1.ttf');
-}
-
-@font-face {
-  font-family: 'AnonymousPro';
-  src: url('./assets/fonts/AnonymousPro-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'AnonymousProBold';
-  src: url('./assets/fonts/AnonymousPro-Bold.ttf');
-}
-
-:root{
-  --bg-primary-color: #f8f8f8;
-  --bg-secondary-color: #111;
-  --text-primary-color: #111;
-}
-
-*{
-  box-sizing: border-box;
-}
-
-body{
-    margin: 0;
-}
-
 #app {
   min-height: 100vh;
   color: var(--text-primary-color);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* border-right: 3rem solid #fff; */
-  color: #000000;
   text-align: center;
-
+  /* border-right: 3rem solid #fff; */
 }
 
 .header{
-    width: 100%;
-    height: 6rem;
-    background-color: var(--bg-primary-color);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;   
-    box-shadow: 0 1px 15px #11111116;
-}
-
-.logo-title{
+  width: 100%;
+  padding: 1rem 0;
+  background-color: var(--bg-primary-color);
+  text-align: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: relative;   
+  box-shadow: 0 1px 15px #11111116;
 }
-
-.logo-title__title{
-    font-size: 3rem;
-    font-family: 'BellaBoo';
-    margin: 0;
-}
-
-.logo-title__subtitle{
-    transform: translateY(-7.5px);
-    font-family: 'AnonymousPro';
-    font-weight: 100;
-    letter-spacing: 3.2px;
-    margin: 0;
-}
-
-.stars{
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.star{
-  background-color: #f7d610;
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  clip-path: polygon(50% 0, 60% 20%, 68% 30%, 80% 40%, 100% 50%, 80% 60%, 68% 70%, 60% 80%, 50% 100%, 40% 80%, 32% 70%, 20% 60%, 0% 50%, 20% 40%, 32% 30%, 40% 20%);
-}
-
-.star:first-child{
-  transform: translate(3px, -6px);
-}
-
-.star:nth-child(2){
-  width: 8px;
-  height: 8px;
-  transform: translate(14px, 1px);
-}
-.star:last-child{
-  width: 6px;
-  height: 6px;
-  transform: translate(18px, -5px);
-}
-
 .aside{
   display: flex;
   justify-content: center;
@@ -172,7 +84,7 @@ body{
   position:absolute;
   top: 0;
   right: 0;
-  height:6rem;
+  height:100%;
   z-index: 10;
   margin-right: 2rem;
 }
@@ -229,6 +141,7 @@ body{
   box-sizing: border-box;
   padding: 30px;
   background-color: var(--bg-primary-color);
+  min-width: 200px;
   width: 15%;
   position: absolute;
   top: 0;
@@ -255,17 +168,17 @@ nav a.router-link-exact-active {
 }
 
 main{
-  padding: 5rem;
   font-family: 'AnonymousPro';
 }
 
 .footer{
-    background-color: var(--bg-primary-color);
-    height: 5rem;
-    width: 100%;
-    margin-top: auto;
-    text-align: center;
-    line-height: 35px;
-    box-shadow: 0 -1px 15px #11111116;
+  background-color: var(--bg-primary-color);
+  height: 5rem;
+  width: 100%;
+  margin-top: auto;
+  text-align: center;
+  line-height: 35px;
+  box-shadow: 0 -1px 15px #11111116;
 }
+
 </style>
