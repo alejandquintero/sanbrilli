@@ -17,6 +17,12 @@
   --bg-primary-color: #f8f8f8;
   --bg-secondary-color: #111;
   --text-primary-color: #111;
+  --height-header-aside: 150px;
+  --height2-header-aside: 170px;
+  --breakpoint-640: 640px;
+  --breakpoint-768: 768px;
+  --breakpoint-900: 900px;
+  --breakpoint-1024: 1024px;
 }
 
 *{
@@ -26,3 +32,4 @@
 body{
     margin: 0;
 }
+

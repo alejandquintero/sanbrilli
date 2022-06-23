@@ -1,12 +1,24 @@
 <template>
-  <header class="header">
+
+  <header class="header" :class="cargado">
     <LogoSanBrilli></LogoSanBrilli>
-    <aside class="aside">
-      <div @click="menuActive" class="container-icon-menu ">
-        <i class="icon-menu" :class="iconStyle"></i>
-      </div>
-    </aside>
   </header>
+
+  <div @click="inputActive" class="container__search">
+    <label for="search" class="container__input__search">
+      <input class="search" type="text" v-model="search" id="search" placeholder="Buscar...">
+      <div class="container__icon-search">
+        <img src="./assets/img/icons8-search.svg" alt="Logo de búsqueda">
+      </div>
+    </label>
+  </div>
+
+  <div @click="menuActive" class="container__icon__menu">
+      <i class="icon__menu" :class="iconStyle"></i>
+  </div>
+
+  <div> {{ search }} </div>
+  
   <main class="main">
     <nav class="nav" :class="navStyle" @click="navActive">
       <router-link to="/">HOME</router-link>
@@ -17,7 +29,15 @@
     </nav>
     <router-view/>
   </main>
-  <footer class="footer"><h4>Footer</h4></footer>
+  <footer class="footer">
+    <a target="_blank" href="https://www.instagram.com/sanbrilli_accesorios/" class="footer__container__instagram">
+      <div class="container__img__instagram">
+        <img src="./assets/img/icon-instagram.svg" alt="Logo de instagram">
+      </div>
+      <h4 class="footer__title">@sanbrilli_accesorios</h4>
+    </a>
+    <p class="paragraph footer__paragraph">Todos los derechos reservados - 2022</p>
+  </footer>
 </template>
 
 <script>
@@ -30,7 +50,11 @@
     },
     data(){
       return{
-        menu : false
+        menu : false,
+        inputSearch: false,
+        search: "",
+        show: [],
+        array:["Collar001", "Collar002", "Collar003"]
       }
     },
     methods: {
@@ -43,16 +67,34 @@
     },
     computed:{
       iconStyle(){
-        return !this.menu ? '' : 'icon-menu--active';
+        return !this.menu ? '' : 'icon__menu--active';
       },
       navStyle(){
         return !this.menu ? '' : 'nav--active';
       }
+    },
+    watch:{
+      search(oldValue){
+        console.log(this.array.filter(element => element.includes(oldValue))); //Hay que mostrarlo en otro componente
+      }
+    },
+    mounted(){
+      document.body.classList.add('cargado');
     }
   }
 </script>
 
 <style>
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+a{
+  text-decoration: none;
+  color: #111;
+}
 
 #app {
   min-height: 100vh;
@@ -61,53 +103,83 @@
   flex-direction: column;
   min-height: 100vh;
   text-align: center;
-  /* border-right: 3rem solid #fff; */
+  position: relative;
 }
 
 .header{
-  width: 100%;
-  padding: 1rem 0;
+  padding: 1rem 0 2rem 0;
   background-color: var(--bg-primary-color);
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;   
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: var(--height-header-aside);
   box-shadow: 0 1px 15px #11111116;
+  z-index: 5;
 }
-.aside{
+.container__search{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: fixed;
   background-color: inherit;
-  width: 3rem;
-  position:absolute;
-  top: 0;
-  right: 0;
-  height:100%;
+  height: var(--height-header-aside);
+  width: 100%;
   z-index: 10;
-  margin-right: 2rem;
 }
 
-.container-icon-menu{
+.container__input__search{
+  position: absolute;
+  bottom: 5px;
+  width: 250px;
+  height: 30px;
+}
+
+.search{
+  width: 100%;
+  height: 25px;
+  border-radius: 8px;
+  outline: none;
+  padding: .5rem 1.5rem .5rem 1rem;
+  border: 1px solid #33333322;
+  font-family: 'AnonymousPro';
+  transition : height .5s;
+}
+
+.container__icon-search{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: .3rem;
+  right: .5rem;
+}
+
+.container__icon__menu{
   display: flex;
+  position: fixed;
+  right: 1.5rem;
   justify-content: center;
   align-items: center;
   padding: 10px 2px;
   width: 3rem;
-  height: 40px;
+  height: var(--height-header-aside);
   cursor: pointer;
+  z-index: 15;
 }
 
-.icon-menu{
+.icon__menu{
   position: relative;
   display:block;
   width: 100%;
   height: 3px;
 }
 
-.icon-menu::before, 
-.icon-menu::after{
+.icon__menu::before, 
+.icon__menu::after{
   content: '';
   display: block;
   background-color: var(--bg-secondary-color);
@@ -119,17 +191,17 @@
   transition : all .2s;
 }
 
-.icon-menu::after{
+.icon__menu::after{
   top: -5px
 }
 
-.icon-menu--active::before,
-.icon-menu--active::after{
+.icon__menu--active::before,
+.icon__menu--active::after{
   top: 0;
   transform: rotate(45deg)
 }
 
-.icon-menu--active::after{
+.icon__menu--active::after{
   transform: rotate(-45deg)
 }
 
@@ -143,15 +215,15 @@
   background-color: var(--bg-primary-color);
   min-width: 200px;
   width: 15%;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   height: 40vh;
   font-family: 'AnonymousPro';
-  /* box-shadow: 0 1px 15px #11111116; */
   box-shadow: 0 1px 8px #11111120;
   transform: translateY(-110%);
   transition: transform .3s;
+  z-index: 10;
 }
 
 .nav--active{
@@ -173,12 +245,63 @@ main{
 
 .footer{
   background-color: var(--bg-primary-color);
-  height: 5rem;
+  padding: 1.5rem 0;
   width: 100%;
   margin-top: auto;
   text-align: center;
   line-height: 35px;
   box-shadow: 0 -1px 15px #11111116;
+  font-family: 'AnonymousPro';
+  font-size: .85rem;
 }
+
+.footer__title{
+  margin: 0;
+}
+.footer__container__instagram{
+  display: flex;
+  justify-content: center;
+  align-items : center;
+  gap: .2rem;
+}
+
+.container__img__instagram{
+  width: 25px;
+  height: 25px;
+}
+
+.paragraph{
+  margin: 0;
+}
+
+
+@media screen and (min-width: 768px) {
+  .header, 
+  .container__search,
+  .container__icon__menu{
+    height: var(--height2-header-aside);
+  }
+
+  .header{
+      padding: 1rem 0;
+  }
+
+  .container__input__search{
+    left: 1.5rem;
+    bottom: auto;
+    width: 25%;
+    max-width: 300px;
+  }
+
+  .search{
+    height: 35px;
+  }
+
+  .container__icon-search{
+    top: .6rem;
+  }
+}
+
+
 
 </style>

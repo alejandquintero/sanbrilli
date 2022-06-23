@@ -74,7 +74,7 @@ export default {
     transform: translate(300%, -90%);
 }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 768px) {
     .logo-title__title{
         font-size: 6rem;
     }
