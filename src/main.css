@@ -23,6 +23,7 @@
   --breakpoint-768: 768px;
   --breakpoint-900: 900px;
   --breakpoint-1024: 1024px;
+  --main-width: 80%;
 }
 
 *{
@@ -33,3 +34,12 @@ body{
     margin: 0;
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

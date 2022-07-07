@@ -1,6 +1,5 @@
 <template>
-
-  <header class="header" :class="cargado">
+  <header class="header">
     <LogoSanBrilli></LogoSanBrilli>
   </header>
 
@@ -22,12 +21,16 @@
   <main class="main">
     <nav class="nav" :class="navStyle" @click="navActive">
       <router-link to="/">HOME</router-link>
-      <router-link to="/about">ABOUT</router-link>
+      <router-link to="/anillos">ANILLOS</router-link>
       <router-link to="/collares">COLLARES</router-link>
       <router-link to="/pulseras">PULSERAS</router-link>
       <router-link to="/zarcillos">ZARCILLOS</router-link>
     </nav>
-    <router-view/>
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </main>
   <footer class="footer">
     <a target="_blank" href="https://www.instagram.com/sanbrilli_accesorios/" class="footer__container__instagram">
@@ -77,9 +80,6 @@
       search(oldValue){
         console.log(this.array.filter(element => element.includes(oldValue))); //Hay que mostrarlo en otro componente
       }
-    },
-    mounted(){
-      document.body.classList.add('cargado');
     }
   }
 </script>
@@ -109,6 +109,7 @@ a{
 .header{
   padding: 1rem 0 2rem 0;
   background-color: var(--bg-primary-color);
+  /* background-color: #fff; como se ve mejor? */
   text-align: center;
   display: flex;
   justify-content: center;

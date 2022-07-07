@@ -1,7 +1,9 @@
 <template>
     <article v-for="(type, index) in types" :key="index" class="article">
-        <img :src="type.img">
-        <span> {{ type.description }} </span>
+        <router-link :to="type.view" >
+            <img class="img" :src="type.img">
+            <span> {{ type.description }} </span>
+        </router-link>
     </article>
 </template>
 
@@ -13,20 +15,24 @@ export default{
         return{ 
             types:[
                 {
-                    img: "bisuteria.webp",
-                    description: "Collares",
-                },
-                {
-                    img: "bisuteria.webp",
-                    description: "Pulseras",
-                },
-                {
-                    img: "bisuteria.webp",
-                    description: "Zarcillos",
-                },
-                {
-                    img: "bisuteria.webp",
+                    img: "img/bisuteria.webp",
                     description: "Anillos",
+                    view: "/anillos"
+                },
+                {
+                    img: "img/bisuteria.webp",
+                    description: "Collares",
+                    view: "/collares"
+                },
+                {
+                    img: "img/bisuteria.webp",
+                    description: "Pulseras",
+                    view: "/pulseras"         
+                },
+                {
+                    img: "img/bisuteria.webp",
+                    description: "Zarcillos",
+                    view: "/zarcillos"
                 }
             ],
         }
@@ -37,14 +43,21 @@ export default{
 <style scoped>
 
   .article{
-    text-align: center;
-    min-width: 140px;
-    width: 30%;
-    max-width: 350px;
-    border-radius: 4px;
-    /* box-shadow: 
-      0 1px 10px #11111116,
-      0 1px 10px #11111116 */
+    transition: transform .3s;
+  }
+
+  .img{
+    transition : box-shadow .3s;
+  }
+
+  .article:hover{
+    transform: translateY(-20px);
+  }
+
+  .article:hover img{
+    box-shadow: 
+        0 2px 10px #ffc83d77,
+        0 2px 10px #ffc83d77
   }
 
   span{

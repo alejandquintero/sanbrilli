@@ -9,7 +9,15 @@
     </div>
     <h2>EL BRILLO QUE NECESITAS 😊</h2>
     <section class="section accessory__types">
+
       <AccesoryTypes></AccesoryTypes>
+      
+      <router-view v-slot="{ Component }">
+        <transition name="fade">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+
     </section>
     <h2>NOVEDADES 🥰</h2>
     <section class="section container__carousel" >
@@ -71,15 +79,27 @@
   }
 
   .accessory__types{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
   }
   
-@media screen and (min-width: 700px) {
-  h2{
-    font-size: 2.5rem;
+  @media screen and (min-width: 640px) {
+    h2{
+      font-size: 2.5rem;
+    }
   }
-}
+
+  @media screen and (min-width: 768px) {
+    /* .section{
+        grid-template-columns: repeat(3, 1fr);
+    } */
+  }
+
+  @media screen and (min-width: 1024px) {
+      .section{
+          grid-template-columns: repeat(4, 1fr);
+      }
+  }
+
 </style>

@@ -41,7 +41,7 @@
             <span class="span">Descripcion</span>
         </swiper-slide>
         <swiper-slide>
-            <img src="https://scontent-mad1-2.cdninstagram.com/v/t51.29350-15/281241605_132230775829602_3173342645202742507_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=afTpXfVNg0MAX_SkRD2&_nc_ht=scontent-mad1-2.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT9us0ZryxSG448TCgSthI9isVhoQdy6GNM0ooag2IC6BQ&oe=629756CE" alt="accesorio">
+            <img src="https://scontent-bcn1-1.cdninstagram.com/v/t51.29350-15/289797417_111333108203991_4473540935374864256_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8ae9d6&_nc_ohc=zVgS3fGgIEwAX_0cq7D&_nc_ht=scontent-bcn1-1.cdninstagram.com&edm=ANo9K5cEAAAA&oh=00_AT_VDyfCf5UjJZKCluAvtDKVSIRl8eh3PIYurm1dsXZxYg&oe=62CC6639" alt="accesorio">
             <span class="span">Descripcion</span>
         </swiper-slide>
       </swiper>

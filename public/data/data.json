@@ -1,0 +1,56 @@
+{
+    "anillos":[
+        {
+            "img" : "img/anillos/anillo1.webp",
+            "alt" : "Imagen zarcillo /nombre/",
+            "name": "nombre de accesorio 1",
+            "price" : "11.00€",
+            "keywords": [""]
+        },
+        {
+            "img" : "img/anillos/anillo2.webp",
+            "alt" : "Imagen zarcillo /nombre/",
+            "name": "nombre de accesorio 2",
+            "price" : "12.00€",
+            "keywords": [""]
+        },
+        {
+            "img" : "img/anillos/anillo3.webp",
+            "alt" : "Imagen zarcillo /nombre/",
+            "name": "nombre de accesorio 3",
+            "price" : "13.00€",
+            "keywords": [""]
+        },
+        {
+            "img" : "img/anillos/anillo4.webp",
+            "alt" : "Imagen zarcillo /nombre/",
+            "name": "nombre de accesorio 3",
+            "price" : "13.00€",
+            "keywords": [""]
+        },
+        {
+            "img" : "img/anillos/anillo5.webp",
+            "alt" : "Imagen zarcillo /nombre/",
+            "name": "nombre de accesorio 3",
+            "price" : "13.00€",
+            "keywords": [""]
+        },
+        {
+            "img" : "img/anillos/anillo6.webp",
+            "alt" : "Imagen zarcillo /nombre/",
+            "name": "nombre de accesorio 3",
+            "price" : "13.00€",
+            "keywords": [""]
+        }
+    ],
+    "collares":{
+
+    },
+    "pulseras":{
+
+    }, 
+    "zarcillos":{
+        
+    }
+
+}
