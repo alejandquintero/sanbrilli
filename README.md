@@ -2,7 +2,7 @@
 
 Proyecto web para una tienda de accesorios.
 
-En desarrollo con Vue Js
+Actualmente en desarrollo con Vue Js.
 
 ![image](https://user-images.githubusercontent.com/91087042/222902357-4849b4cb-b113-4840-b407-6c3205513e73.png)
 
